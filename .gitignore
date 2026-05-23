@@ -1,0 +1,9 @@
+dist/
+*.o
+*.obj
+*.a
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+compile_commands.json

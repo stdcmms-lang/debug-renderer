@@ -1,0 +1,64 @@
+---
+Checks: >
+  *,
+  -abseil-*,
+  -altera-*,
+  -android-*,
+  -fuchsia-*,
+  -google-*,
+  -llvm-*,
+  -llvmlibc-*,
+  -zircon-*,
+  -readability-magic-numbers,
+  -readability-uppercase-literal-suffix,
+  -modernize-use-trailing-return-type,
+  -misc-include-cleaner,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-macro-usage,
+  -cppcoreguidelines-avoid-c-arrays,
+  -misc-non-private-member-variables-in-classes,
+  -modernize-use-scoped-lock,
+  -bugprone-*,
+  -cert-*,
+  -clang-analyzer-*,
+  -concurrency-*,
+  -misc-*,
+  -performance-*,
+  -portability-*,
+  -readability-*,
+  readability-identifier-naming,
+  -security-*,
+  -boost-use-ranges
+WarningsAsErrors: ""
+FormatStyle: "file"
+
+# Naming convention rules
+CheckOptions:
+  readability-identifier-naming.FunctionCase: camelBack
+  readability-identifier-naming.FunctionIgnoredRegexp: "^(operator|~)"
+  readability-identifier-naming.MethodCase: camelBack
+  readability-identifier-naming.MethodIgnoredRegexp: "^(operator|~)"
+  readability-identifier-naming.VariableCase: camelBack
+  readability-identifier-naming.VariableIgnoredRegexp: "^(m_|s_|g_)"
+  readability-identifier-naming.ParameterCase: camelBack
+  readability-identifier-naming.ParameterIgnoredRegexp: "^(m_|s_|g_)"
+  readability-identifier-naming.MemberCase: camelBack
+  readability-identifier-naming.MemberIgnoredRegexp: "^(m_|s_|g_)"
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.StructCase: CamelCase
+  readability-identifier-naming.UnionCase: CamelCase
+  readability-identifier-naming.EnumCase: CamelCase
+  readability-identifier-naming.EnumConstantCase: CamelCase
+  readability-identifier-naming.TypedefCase: CamelCase
+  readability-identifier-naming.TypeAliasCase: CamelCase
+  readability-identifier-naming.TemplateParameterCase: CamelCase
+  readability-identifier-naming.NamespaceCase: lower_case
+  readability-identifier-naming.ConstantCase: UPPER_CASE
+  readability-identifier-naming.ConstantMemberCase: UPPER_CASE
+  readability-identifier-naming.PrivateMemberPrefix: ""
+  readability-identifier-naming.ProtectedMemberPrefix: ""
+  readability-identifier-naming.PublicMemberPrefix: ""
+  readability-identifier-naming.StaticConstantCase: UPPER_CASE
+  readability-identifier-naming.StaticVariableCase: camelBack
+  readability-identifier-naming.GlobalConstantCase: UPPER_CASE
+  readability-identifier-naming.GlobalVariableCase: camelBack

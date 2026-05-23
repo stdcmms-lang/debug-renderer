@@ -1,0 +1,39 @@
+diff --git a/modules/skparagraph/include/TextStyle.h b/modules/skparagraph/include/TextStyle.h
+index 24b1fc679b..a0a425417d 100644
+--- a/modules/skparagraph/include/TextStyle.h
++++ b/modules/skparagraph/include/TextStyle.h
+@@ -297,7 +297,7 @@ public:
+     SkFontHinting getFontHinting() const { return fHinting; }
+ 
+ private:
+-    static const std::vector<SkString>* kDefaultFontFamilies;
++    static const std::vector<SkString>* defaultFontFamilies();
+ 
+     Decoration fDecoration = {
+             TextDecoration::kNoDecoration,
+@@ -311,7 +311,7 @@ private:
+ 
+     SkFontStyle fFontStyle;
+ 
+-    std::vector<SkString> fFontFamilies = *kDefaultFontFamilies;
++    std::vector<SkString> fFontFamilies = *defaultFontFamilies();
+ 
+     SkScalar fFontSize = 14.0;
+     SkFont::Edging fEdging = SkFont::Edging::kAntiAlias;
+diff --git a/modules/skparagraph/src/TextStyle.cpp b/modules/skparagraph/src/TextStyle.cpp
+index 26a7a9eb59..f21e364867 100644
+--- a/modules/skparagraph/src/TextStyle.cpp
++++ b/modules/skparagraph/src/TextStyle.cpp
+@@ -6,8 +6,11 @@
+ namespace skia {
+ namespace textlayout {
+ 
+-const std::vector<SkString>* TextStyle::kDefaultFontFamilies =
++const std::vector<SkString>* TextStyle::defaultFontFamilies() {
++    static const std::vector<SkString>* kDefaultFontFamilies =
+         new std::vector<SkString>{SkString(DEFAULT_FONT_FAMILY)};
++    return kDefaultFontFamilies;
++}
+ 
+ TextStyle TextStyle::cloneForPlaceholder() {
+     TextStyle result;
